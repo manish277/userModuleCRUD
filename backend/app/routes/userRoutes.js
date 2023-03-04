@@ -17,29 +17,7 @@ const storage = multer.diskStorage({
   });
   const upload = multer({ storage: storage });
 
-// // Create or update user
-// router.post('/users', async (req, res) => {
-//   try {
-//     const { id, name, email, password } = req.body;
 
-//     // Check if user exists
-//     let user = await User.findById(id);
-//     if (user) {
-//       // Update existing user
-//       user.name = name;
-//       user.email = email;
-//       user.password = password;
-//     } else {
-//       // Create new user
-//       user = new User({ name, email, password });
-//     }
-//     await user.save();
-//     res.status(200).json({ message: 'User created/updated successfully', user });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ message: 'Server error' });
-//   }
-// });
 
 
 // CREATE/UPDATE USER API
