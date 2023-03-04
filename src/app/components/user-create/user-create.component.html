@@ -1,0 +1,23 @@
+<form #userForm="ngForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label>First Name</label>
+      <input type="text" name="firstName" [(ngModel)]="user.firstName" required>
+    </div>
+    <div>
+      <label>Last Name</label>
+      <input type="text" name="lastName" [(ngModel)]="user.lastName" required>
+    </div>
+    <div>
+      <label>Email</label>
+      <input type="email" name="email" [(ngModel)]="user.email" required email>
+    </div>
+    <div>
+      <label>Phone Number</label>
+      <input type="tel" name="phoneNumber" [(ngModel)]="user.phoneNumber" required pattern="[0-9]{10}">
+    </div>
+    <div>
+      <label>Profile Image</label>
+      <input type="file" name="profileImage" (change)="onImageSelected($event)" accept="image/*" required>
+    </div>
+    <button type="submit"  class="btn btn-primary" [disabled]="!userForm.valid">Submit</button>
+  </form>
