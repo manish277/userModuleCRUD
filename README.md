@@ -2,13 +2,21 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
 
-## Development server
+## Backend server
+ ###For running backend server code go to backend folder
+cd backend
+###intall node packages
+npm i
+###run script with below command
+npm run start
 
+### server will run on port 5000
+
+## Development Front End
+Install npm package 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
