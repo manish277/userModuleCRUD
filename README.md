@@ -3,14 +3,20 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
 
 ## Backend server
- ###For running backend server code go to backend folder
+
+For running backend server code go to backend folder
+
 cd backend
-###intall node packages
+
+intall node packages
+
 npm i
-###run script with below command
+
+run script with below command
+
 npm run start
 
-### server will run on port 5000
+ server will run on port 5000
 
 ## Development Front End
 Install npm package 
