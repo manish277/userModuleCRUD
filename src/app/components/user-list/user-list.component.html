@@ -19,7 +19,7 @@
           <td>{{ user.phoneNumber }}</td>
           <td>{{user.profileImage}}</td>
           <td>
-            <a [routerLink]="['/edit-user']" [queryParams]="{ id: user._id, firstName: user.firstName, lastName: user.lastName, email: user.email, phoneNumber: user.phoneNumber }">Edit</a>
+            <a [routerLink]="['/edit-user']" [queryParams]="{ id: user._id, firstName: user.firstName, lastName: user.lastName, email: user.email, phoneNumber: user.phoneNumber,profileImage:user.profileImage }">Edit</a>
             <button (click)="deleteUser(user._id)" class="btn btn-danger">Delete</button>
           </td>
         </tr>

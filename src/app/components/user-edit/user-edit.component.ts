@@ -10,6 +10,7 @@ import { ApiService } from '../../service/api.service';
 export class UserEditComponent implements OnInit {
   userForm: any;
   user: any;
+  selectedProfileImage: any;
   constructor(  private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private apiService: ApiService) { }
 
   ngOnInit(): void {
@@ -19,7 +20,7 @@ export class UserEditComponent implements OnInit {
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phoneNumber: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]],
-      profileImage: ['']
+      profileImage: ['',Validators.required]
     });
 
     this.route.queryParams.subscribe(params => {
@@ -29,9 +30,18 @@ export class UserEditComponent implements OnInit {
         firstName: this.user.firstName,
         lastName: this.user.lastName,
         email: this.user.email,
-        phoneNumber: this.user.phoneNumber
+        phoneNumber: this.user.phoneNumber,
+        profileImage: ''
       });
     });
+  }
+  onImageSelected(event:any) {
+    if (event.target.files.length > 0) {
+      this.selectedProfileImage = event.target.files[0];
+      this.userForm.patchValue({
+        profileImage: this.selectedProfileImage
+      })
+    }
   }
 onSubmit() {
     const formData = new FormData();
@@ -40,8 +50,9 @@ onSubmit() {
     formData.append('lastName', this.userForm.get('lastName').value);
     formData.append('email', this.userForm.get('email').value);
     formData.append('phoneNumber', this.userForm.get('phoneNumber').value);
-    formData.append('profileImage', this.userForm.get('profileImage').value);
-
+    if (this.selectedProfileImage) {
+      formData.append('profileImage', this.selectedProfileImage);
+    }
     this.apiService.updateUser(this.user.id,formData).subscribe(() => {
       this.router.navigate(['/user-list']);
     });

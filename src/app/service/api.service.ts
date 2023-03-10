@@ -35,8 +35,9 @@ export class ApiService {
   // Update User
   updateUser(id:any, data:any): Observable<any> {
     let url = `${this.baseUri}/update_users/${id}`;
+    console.log("update_users,data",data)
     return this.http
-      .put(url, data, { headers: this.headers })
+      .put(url, data)
       .pipe(catchError(this.errorMgmt));
   }
   // Delete User

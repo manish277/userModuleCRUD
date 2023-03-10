@@ -33,10 +33,10 @@
       </div>
       <div class="form-group">
         <label>Profile Image:</label>
-        <input type="file" class="form-control-file" formControlName="profileImage">
+        <input type="file" name="profileImage"  class="form-control-file" (change)="onImageSelected($event)" accept="image/*"  formControlName="profileImage">
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Save</button>
+        <button type="submit" class="btn btn-primary" >Save</button>
       </div>
     </form>
   </div>

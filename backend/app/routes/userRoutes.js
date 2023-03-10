@@ -85,8 +85,7 @@ router.get('/users/:id', async (req, res) => {
   }
 });
 // Update user
-router.patch('/update_users/:id', upload.single('profileImage'), async (req, res) => {
-console.log('createusers',req.body)
+router.put('/update_users/:id', upload.single('profileImage'), async (req, res) => {
 
     const updates = Object.keys(req.body);
     try {
